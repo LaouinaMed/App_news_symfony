@@ -32,9 +32,14 @@
           <nav class="site-navigation" role="navigation">
             <ul class="site-menu js-clone-nav mr-auto d-none d-lg-block mb-0">
               <li><a href="{{ path('app_home_page')}}">Home</a></li>
-              <li><a href="{{ path('app_news_index')}}">Add Item</a></li>
               <li><a href={{ path('app_contact')}}>Contact</a></li>
+              {% if  app.user %}
+                <li><a href="{{ path('app_news_index')}}">Add Item</a></li>
+                <a href="{{ path('app_logout')}}"class="btn btn-danger role="button">Logout</a>
+              {% else %}
               <a href="{{ path('app_login')}}"class="btn btn-info" role="button">Sign In</a>
+              {% endif %}
+             
             </ul>
           </nav>
           
